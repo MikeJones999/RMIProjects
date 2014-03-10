@@ -25,7 +25,8 @@ public class EchoServerLauncher
 			System.setSecurityManager(new RMISecurityManager());
 		}
 		
-		try{
+		try 
+		{
 				//2. Create the reg if there is not one
 				LocateRegistry.createRegistry(1099);
 				//3. Create the server object
@@ -35,16 +36,17 @@ public class EchoServerLauncher
 				String registryHost = "//localhost/";
 				String serviceName = "echo";
 				Naming.rebind(registryHost + serviceName, server);
-		
-		   } catch (MalformedURLException ex)
-				{
-					ex.printStackTrace();
-				}
-				catch(RemoteException ex)
-					{
-						ex.printStackTrace();
-					}
-	
+				System.out.println("Server in waiting for connections...");
+		} 
+		catch (MalformedURLException ex)
+		{
+			ex.printStackTrace();
+		}
+		catch(RemoteException ex)
+		{
+			ex.printStackTrace();
+		}
+		System.out.println("Main thread ended");
 	}
 
 

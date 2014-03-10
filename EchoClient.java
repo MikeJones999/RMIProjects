@@ -26,7 +26,9 @@ public class EchoClient
 		System.out.print("Insert Port: ");
 		String port = System.console().readLine();
 		
+		System.out.println("Looking up " + "//"+ip+":"+port +"/echo");
 		Remote service = Naming.lookup("//"+ip+":"+port +"/echo");
+		System.out.println("Looked up " + "//"+ip+":"+port +"/echo");
 		//Remote service = Naming.lookup("//193.61.8.125:1099/echo");
 	    //Remote service = Naming.lookup("//127.0.0.1:1099/echo");
 		EchoService echoService = (EchoService) service; 
